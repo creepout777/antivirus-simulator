@@ -1,130 +1,80 @@
-# 🛡️ Toy-Antivirus, A miniproject assignment
-![License](https://img.shields.io/github/license/creepout777/Antivirus-Simulator)
-![Stars](https://img.shields.io/github/stars/creepout777/Antivirus-Simulator)
-![Forks](https://img.shields.io/github/forks/creepout777/Antivirus-Simulator)
-![Issues](https://img.shields.io/github/issues/creepout777/Antivirus-Simulator)
-![Last Commit](https://img.shields.io/github/last-commit/creepout777/Antivirus-Simulator)
-![Top Language](https://img.shields.io/github/languages/top/creepout777/Antivirus-Simulator)
-![Code Size](https://img.shields.io/github/languages/code-size/creepout777/Antivirus-Simulator)
-![Contributors](https://img.shields.io/github/contributors/creepout777/Antivirus-Simulator)
+<div align="center">
 
+# Antivirus Simulator
 
----
+A signature-based file scanner in C that moves files between Clean, Suspect and Quarantine lists, built on hand-written linked lists.
 
-## 👥 Contributeurs
-- YASSINE  | Étape 1️⃣ : Structures et prototypes
-- MERWA    | Étape 2️⃣ : Gestion des fichiers
-- ADAM     | Étape 3️⃣ : Gestion des signatures
-- MALAK    | Étape 4️⃣ : Scan
-- HAMZA    | Étape 5️⃣ : Nettoyage
+![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=black)
+![Make](https://img.shields.io/badge/Make-30363D?style=flat-square&logo=gnu&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
+<sub>Mini-project · C programming and data structures</sub>
 
+[Commands](#commands) &nbsp;·&nbsp; [Example session](#example-session) &nbsp;·&nbsp; [Getting started](#getting-started)
 
----
+</div>
 
-## 📝 À propos du projet
+## Overview
 
-Nous créerons un simulateur antivirus en C pour apprendre à manipuler des fichiers et des signatures avec des listes chaînées.  
+The simulator never touches real malware. It loads files from disk, searches their bytes for user-defined signature patterns, and moves any match to a Suspect list, from where it can be quarantined or restored. Each list is a linked list of file records, and all memory is managed by hand with `malloc` and `free`.
 
-💡 Ce projet ne contiendra aucun vrai virus, il servira uniquement à comprendre comment un antivirus fonctionnera :  
+## Commands
 
-- Nous gérerons des fichiers et des signatures  
-- Nous implémenterons un scan simple basé sur des patterns  
-- Nous déplacerons des fichiers entre listes (Clean, Suspect, Quarantine)  
-- Nous créerons une interface CLI pour interagir avec le programme  
-- Nous gérerons manuellement la mémoire (`malloc` / `free`)  
+| Command | Effect |
+|---|---|
+| `ADD_SIG <pattern>` | Add a signature |
+| `DEL_SIG <pattern>` | Remove a signature |
+| `LOAD <path>` | Load a file into the Clean list |
+| `SCAN` | Scan the Clean list and move matches to Suspect |
+| `QUAR <name>` | Move a file to Quarantine |
+| `RESTORE <name>` | Move a file back to Clean |
+| `REPORT` | Show every list, totals and the signatures |
+| `PURGE` | Free all lists |
+| `EXIT` | Quit and free memory |
 
----
+## Example session
 
-## 🕒 Chronologie du développement
+<img src="docs/screenshots/session.svg" alt="Antivirus simulator session" width="640" />
 
-Voici comment nous construirons notre projet, étape par étape :  
+<sub>A real run against the files in `testfiles/`: `virus.exe` contains the signature `123` and is caught, then quarantined.</sub>
 
-### Étape 1️⃣ : Structures et prototypes
+## Project structure
 
-**Fichiers :** `filelist.h` + `siglist.h`  
+```
+antivirus-simulator/
+├── include/
+│   ├── filelist.h   # File records and the Clean, Suspect and Quarantine lists
+│   ├── siglist.h    # Signature list
+│   ├── scan.h       # Pattern matching over file contents
+│   └── cleanup.h    # Freeing everything
+├── src/             # Implementations and the command loop in main.c
+├── testfiles/       # Sample files to scan
+└── Makefile
+```
 
-Nous commencerons par définir `FileRec` et `Sig`, ainsi que toutes les fonctions principales que nous utiliserons ensuite.  
+## Getting started
 
-🎯 **Objectif :** poser les fondations pour tout le projet.
+**Requirements**: GCC and Make.
 
----
+```bash
+make        # builds ./antivirus
+make run    # builds and starts it
+```
 
-### Étape 2️⃣ : Gestion des fichiers
+## Team
 
-**Fichier :** `filelist.c`  
+| Member | Part |
+|---|---|
+| Yassine | Data structures and prototypes |
+| Merwa | File handling |
+| Adam | Signature management |
+| Malak | Scanning |
+| Hamza | Cleanup |
 
-Nous coderons :  
+## License
 
-- Création de fichiers (`create_file`)  
-- Ajout dans une liste (`insert_file`)  
-- Suppression ou recherche (`remove_file`, `find_file`)  
-- Déplacement entre listes (`move_file`)  
-- Affichage et libération mémoire (`print_list`, `free_list`)  
-
-✅ Nous testerons chaque fonction avec un petit `main` temporaire pour vérifier que les pointeurs fonctionneront correctement.
-
----
-
-### Étape 3️⃣ : Gestion des signatures
-
-**Fichier :** `siglist.c`  
-
-Nous coderons :  
-
-- Création de signatures (`create_sig`)  
-- Ajout / suppression (`insert_sig`, `delete_sig`)  
-- Affichage et libération mémoire (`print_sigs`, `free_sigs`)  
-
-Nous vérifierons que l’ajout et la suppression fonctionneront avant de coder le scan.
+Released under the [MIT License](LICENSE).
 
 ---
 
-### Étape 4️⃣ : Scan
-
-**Fichier :** `scan.c`  
-
-Nous coderons :  
-
-- Parcours de la liste Clean  
-- Comparaison avec toutes les signatures (`strstr`)  
-- Déplacement des fichiers suspects vers Suspect  
-- Mise à jour du flag `suspicious = 1`  
-
-⚠️ Nous gérerons correctement les pointeurs pour ne pas casser la liste.
-
----
-
-### Étape 5️⃣ : Nettoyage
-
-**Fichier :** `cleanup.c`  
-
-Nous coderons `purge_all()` pour :  
-
-- Libérer toutes les listes : Clean, Suspect, Quarantine, Signatures  
-- Mettre tous les pointeurs à NULL pour éviter les fuites mémoire  
-
-🧹 Cette étape nous permettra de vérifier que la gestion de la mémoire sera correcte.
-
----
-
-### Étape 6️⃣ : Interface CLI
-
-**Fichier :** `main.c`  
-
-Nous coderons la boucle principale et les commandes :  
-
-- `ADD_SIG` / `DEL_SIG`  
-- `LOAD`  
-- `SCAN`  
-- `QUAR` / `RESTORE`  
-- `REPORT`  
-- `PURGE` / `EXIT`  
-
-🖥️ Nous commencerons par tester les commandes simples (`ADD_SIG`, `LOAD`, `REPORT`) puis nous intégrerons `SCAN` et `QUAR`.
-
----
-
-Pour Compiler le projet : gcc src/*.c -Iinclude -o antivirus
-Vous pouvez aussi utiliser Make
-
+<div align="center"><sub>Part of <a href="https://github.com/creepout777">Yassine Aitaouicha's projects</a></sub></div>

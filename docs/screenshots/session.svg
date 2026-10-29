@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="625" height="979" viewBox="0 0 625 979" role="img" aria-label="./antivirus terminal session">
+<rect width="625" height="979" rx="12" fill="#0d1117"/>
+<path d="M0 12a12 12 0 0 1 12-12h601a12 12 0 0 1 12 12v32h-625z" fill="#161b22"/>
+<line x1="0" y1="44" x2="625" y2="44" stroke="#30363d"/>
+<rect x="0.5" y="0.5" width="624" height="978" rx="12" fill="none" stroke="#30363d"/>
+<circle cx="22" cy="22.0" r="6" fill="#ff5f57"/>
+<circle cx="42" cy="22.0" r="6" fill="#febc2e"/>
+<circle cx="62" cy="22.0" r="6" fill="#28c840"/>
+<text x="312.5" y="27.0" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono','DejaVu Sans Mono',monospace" font-size="13" fill="#8b949e">./antivirus</text>
+<g font-family="'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono','DejaVu Sans Mono',monospace" font-size="15" xml:space="preserve">
+<text x="28" y="70.0"><tspan fill="#58a6ff">=== Antivirus Simulator ===</tspan></text>
+<text x="28" y="93.2"><tspan fill="#c9d1d9">Type HELP for available commands.</tspan></text>
+<text x="28" y="116.5"><tspan fill="#c9d1d9"></tspan></text>
+<text x="28" y="139.8"><tspan fill="#3fb950">&gt; </tspan><tspan fill="#f0f6fc">ADD_SIG 123</tspan></text>
+<text x="28" y="163.0"><tspan fill="#c9d1d9">Signature '123' added.</tspan></text>
+<text x="28" y="186.2"><tspan fill="#3fb950">&gt; </tspan><tspan fill="#f0f6fc">ADD_SIG eval(</tspan></text>
+<text x="28" y="209.5"><tspan fill="#c9d1d9">Signature 'eval(' added.</tspan></text>
+<text x="28" y="232.8"><tspan fill="#3fb950">&gt; </tspan><tspan fill="#f0f6fc">LOAD testfiles/virus.exe</tspan></text>
+<text x="28" y="256.0"><tspan fill="#c9d1d9">File 'testfiles/virus.exe' loaded into Clean list.</tspan></text>
+<text x="28" y="279.2"><tspan fill="#3fb950">&gt; </tspan><tspan fill="#f0f6fc">LOAD testfiles/safe.exe</tspan></text>
+<text x="28" y="302.5"><tspan fill="#c9d1d9">File 'testfiles/safe.exe' loaded into Clean list.</tspan></text>
+<text x="28" y="325.8"><tspan fill="#3fb950">&gt; </tspan><tspan fill="#f0f6fc">SCAN</tspan></text>
+<text x="28" y="349.0"><tspan fill="#f85149">[!] Suspicious file detected: testfiles/virus.exe</tspan></text>
+<text x="28" y="372.2"><tspan fill="#3fb950">&gt; </tspan><tspan fill="#f0f6fc">QUAR testfiles/virus.exe</tspan></text>
+<text x="28" y="395.5"><tspan fill="#c9d1d9">File 'testfiles/virus.exe' moved to Quarantine.</tspan></text>
+<text x="28" y="418.8"><tspan fill="#3fb950">&gt; </tspan><tspan fill="#f0f6fc">REPORT</tspan></text>
+<text x="28" y="442.0"><tspan fill="#58a6ff">=== Current Lists ===</tspan></text>
+<text x="28" y="465.2"><tspan fill="#58a6ff">=== Clean ===</tspan></text>
+<text x="28" y="488.5"><tspan fill="#3fb950">  testfiles/safe.exe   |    20 bytes | CLEAN</tspan></text>
+<text x="28" y="511.8"><tspan fill="#8b949e">-- Total: 1 files, 20 bytes --</tspan></text>
+<text x="28" y="535.0"><tspan fill="#c9d1d9"></tspan></text>
+<text x="28" y="558.2"><tspan fill="#58a6ff">=== Suspect ===</tspan></text>
+<text x="28" y="581.5"><tspan fill="#c9d1d9">  (empty)</tspan></text>
+<text x="28" y="604.8"><tspan fill="#8b949e">-- Total: 0 files, 0 bytes --</tspan></text>
+<text x="28" y="628.0"><tspan fill="#c9d1d9"></tspan></text>
+<text x="28" y="651.2"><tspan fill="#58a6ff">=== Quarantine ===</tspan></text>
+<text x="28" y="674.5"><tspan fill="#e3b341">  testfiles/virus.exe  |    20 bytes | SUSPECT</tspan></text>
+<text x="28" y="697.8"><tspan fill="#8b949e">-- Total: 1 files, 20 bytes --</tspan></text>
+<text x="28" y="721.0"><tspan fill="#c9d1d9"></tspan></text>
+<text x="28" y="744.2"><tspan fill="#c9d1d9">Signatures:</tspan></text>
+<text x="28" y="767.5"><tspan fill="#58a6ff">--- Liste des Signatures ---</tspan></text>
+<text x="28" y="790.8"><tspan fill="#c9d1d9">  [1] Pattern: 'eval('</tspan></text>
+<text x="28" y="814.0"><tspan fill="#c9d1d9">  [2] Pattern: '123'</tspan></text>
+<text x="28" y="837.2"><tspan fill="#8b949e">--- Total: 2 signatures ---</tspan></text>
+<text x="28" y="860.5"><tspan fill="#c9d1d9"></tspan></text>
+<text x="28" y="883.8"><tspan fill="#3fb950">&gt; </tspan><tspan fill="#f0f6fc">EXIT</tspan></text>
+<text x="28" y="907.0"><tspan fill="#c9d1d9">Exiting...</tspan></text>
+<text x="28" y="930.2"><tspan fill="#3fb950">Memory freed. Goodbye!</tspan></text>
+</g></svg>
